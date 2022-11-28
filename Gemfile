@@ -26,9 +26,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'active_storage_validations', '0.8.9'
 gem 'faker', '2.11.0'
 gem 'will_paginate', '3.3.0'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -68,3 +71,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg', '~> 1.4', '>= 1.4.4'
+  gem 'aws-sdk-s3', '1.87.0', require: false
+end
