@@ -23,7 +23,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     log_in_as(users(:michael))
     micropost = microposts(:ants)
     assert_no_difference 'Micropost.count' do
-      sdelete micropost_path(micropost)
+      delete micropost_path(micropost)
     end
     assert_redirected_to root_url
   end
