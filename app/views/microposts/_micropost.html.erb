@@ -12,4 +12,22 @@
                                              data: { confirm: "You sure?" } %>
         <% end %>
     </span>
+
+    <span class="micropost-comments">
+        <% if micropost.comments.any? %>
+            <h5>Comments (<%= micropost.comments.count %>)</h5>
+        <% end %>
+        <div class="comments-list">
+            <% micropost.comments.each do |comment|%>
+                <div class="comment-content">
+                    <p><%= link_to comment.user.name, comment.user%> commented <%= time_ago_in_words(comment.created_at) %> ago:</p>
+                    <%= comment.content%>
+                </div>
+            <% end %>
+            <% @micropost = micropost %>
+        </div>
+        <div class="comment-form">
+            <%= render "comments/form", comment: @comment%>
+        </div>
+    </span>
 </li>
