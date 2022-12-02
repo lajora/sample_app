@@ -43,13 +43,12 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 # Comments
-users = User.order(:created_at).take (6)
-microposts = Micropost.order(:created_at).take(6)
-microposts.each do |micropost| 
-    2.times do 
-        users.each do |user|
+users = User.order(:created_at).take(6)
+users.each do |user| 
+    user.microposts.take(6).each do |micropost|
+        rand(1..5).times do 
             content = Faker::Lorem.sentence(word_count: 5)
-            micropost.comments.create!(content: content, user_id: user.id) 
+            micropost.comments.create!(content: content, user_id: users[rand(users.length)].id) 
         end 
     end 
 end 

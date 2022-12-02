@@ -6,11 +6,12 @@ class CommentsController < ApplicationController
         @comment.micropost = @micropost
         @comment.user = current_user
         respond_to do |format|
-          if @comment.save!
-            format.html { redirect_to user_path(@micropost.user)}
-          else
-            format.html { redirect_to user_path(@micropost.user) }
-          end
+            if @comment.save!
+                format.html { redirect_to user_path(@micropost.user)}
+                format.js
+            else
+                format.html { redirect_to user_path(@micropost.user) }
+            end
         end
     end 
 
