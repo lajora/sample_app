@@ -41,3 +41,14 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+# Comments
+users = User.order(:created_at).take(6)
+users.each do |user| 
+    user.microposts.take(6).each do |micropost|
+        rand(1..5).times do 
+            content = Faker::Lorem.sentence(word_count: 5)
+            micropost.comments.create!(content: content, user_id: users[rand(users.length)].id) 
+        end 
+    end 
+end 

@@ -1,0 +1,9 @@
+<div class="comment-form">
+    <%=form_with id:"form-comment", model: @comment, local: false, url: micropost_comments_path(@micropost), method: :post do |f|%>
+        <%= f.label:content, "Comment:" %>
+            <%= f.text_field:content %>
+        <div class="comment-form-button">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div >

@@ -1,0 +1,3 @@
+$("#comments-list-<% @micropost.id %>").html("<%= escape_javascript(render("comments/content"))%>");
+$("#form-comment")[0].reset();
+
