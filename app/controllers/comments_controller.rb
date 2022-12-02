@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
                 format.js
             else
                 format.html { redirect_to user_path(@micropost.user) }
+                format.js
             end
         end
     end 
